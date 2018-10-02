@@ -7,8 +7,7 @@ let cssExtract = new ExtractTextWebpackPlugin({filename:'./css/[name].css'});
 let webpack = require('webpack');//启用服务器时的实时更新
 module.exports = {
     entry:{
-        main:'./src/js/main.js',
-        page:'./src/js/page.js'
+        main:'./src/js/main.js'
     },
     output:{
         filename:'./js/[name].[hash:8].js', //设置hash值,清除缓存,可以设置hash位数
@@ -26,17 +25,6 @@ module.exports = {
             title:'zhufeng',//可使用的title属性
             filename:'index.html',
             chunks:['main'],
-            minify:{
-                removeAttributeQuotes:true, //删除属性中的双引号
-                collapseWhitespace:true //变成一行
-            },
-            hash:true //在html中的js文件名称后面加一串hash值,清除缓存
-        }),
-        new HtmlWebpackPlugin({//打包html文件
-            template:'./src/page.html',//打包的html文件路径
-            title:'zhufeng',//可使用的title属性
-            filename:'page.html',
-            chunks:['page'],
             minify:{
                 removeAttributeQuotes:true, //删除属性中的双引号
                 collapseWhitespace:true //变成一行
